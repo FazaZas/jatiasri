@@ -12,9 +12,8 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-        <!--- Tambahkan setelah app.css --->
-        <link href="{{ url('/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-        <link href="{{ url('/css/responsive.dataTables.min.css') }}" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
         <style>
             /*Form fields*/
             .dataTables_wrapper select,
@@ -30,16 +29,19 @@
                 border-color: #edf2f7; 		/*border-gray-200*/
                 background-color: #edf2f7; 	/*bg-gray-200*/
             }
+
             /*Row Hover*/
             table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
                 background-color: #ebf4ff;	/*bg-indigo-100*/
             }
+            
             /*Pagination Buttons*/
             .dataTables_wrapper .dataTables_paginate .paginate_button		{
                 font-weight: 700;				/*font-bold*/
                 border-radius: .25rem;			/*rounded*/
                 border: 1px solid transparent;	/*border border-transparent*/
             }
+            
             /*Pagination Buttons - Current selected */
             .dataTables_wrapper .dataTables_paginate .paginate_button.current	{
                 color: #fff !important;				/*text-white*/
@@ -49,6 +51,7 @@
                 background: #667eea !important;		/*bg-indigo-500*/
                 border: 1px solid transparent;		/*border border-transparent*/
             }
+
             /*Pagination Buttons - Hover */
             .dataTables_wrapper .dataTables_paginate .paginate_button:hover		{
                 color: #fff !important;				/*text-white*/
@@ -58,26 +61,28 @@
                 background: #667eea !important;		/*bg-indigo-500*/
                 border: 1px solid transparent;		/*border border-transparent*/
             }
+            
             /*Add padding to bottom border */
             table.dataTable.no-footer {
                 border-bottom: 1px solid #e2e8f0;	/*border-b-1 border-gray-300*/
                 margin-top: 0.75em;
                 margin-bottom: 0.75em;
             }
+            
             /*Change colour of responsive icon*/
             table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
                 background-color: #667eea !important; /*bg-indigo-500*/
             }
+
         </style>
 
         @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <!--- Tambahkan setelah app.js --->
-        <script type="text/javascript" src="{{ url('/js/jquery-3.4.1.min.js') }}"></script>
-        <script src="{{ url('/js/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ url('/js/dataTables.responsive.min.js') }}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -86,13 +91,11 @@
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
 
             <!-- Page Content -->
             <main>
@@ -103,7 +106,7 @@
         @stack('modals')
 
         @livewireScripts
-        <!--- Tambahkan setelah @livewireScripts --->
+
         {{ $script ?? '' }}
     </body>
 </html>
