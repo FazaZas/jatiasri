@@ -41,7 +41,7 @@ class ProductGalleryController extends Controller
                 ->make();
         }
 
-        return view('pages.dashboard.gallery.index', compact('product')); 
+        return view('pages.dashboard.gallery.index', compact('product'));
     }
 
     /**
