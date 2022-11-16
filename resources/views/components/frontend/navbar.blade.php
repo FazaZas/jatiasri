@@ -31,11 +31,7 @@
                   >Pengiriman</a
                 >
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
-                  >About Us</a
-                >
-              </li>
+
             </ul>
           </div>
           <div class="w-auto">
