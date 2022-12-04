@@ -8,7 +8,7 @@
             alt="Luxspace | Fulfill your house with beautiful furniture"
           />
         </div>
-        <aside class="container mx-auto">
+        {{-- <aside class="container mx-auto">
           <div class="flex flex-wrap -mx-4 justify-center">
             <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
               <h5 class="text-lg font-semibold mb-2 relative">Overview</h5>
@@ -87,7 +87,7 @@
               </form>
             </div>
           </div>
-        </aside>
+        </aside> --}}
       </div>
     </section>
     <!-- END: ASIDE MENU -->

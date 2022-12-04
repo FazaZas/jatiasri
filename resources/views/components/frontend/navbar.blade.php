@@ -17,20 +17,34 @@
               id="menu"
             >
               <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                <a href="#browse-the-room" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
                   >Kategori</a
                 >
               </li>
               <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                <a href="#katalog" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
                   >Katalog</a
                 >
               </li>
-              <li class="mx-3 py-6 md:py-0">
-                <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
-                  >Pengiriman</a
-                >
-              </li>
+              @auth
+                <li class="mx-3 py-6 md:py-0">
+                    <a href="{{ route('dashboard.index') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                    >Dashboard</a
+                    >
+                </li>
+              @endauth
+              @guest
+                <li class="mx-3 py-6 md:py-0">
+                    <a href="{{ route('login') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                    >Login</a
+                    >
+                </li>
+                <li class="mx-3 py-6 md:py-0">
+                    <a href="{{ route('register') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                    >Register</a
+                    >
+                </li>
+              @endguest
 
             </ul>
           </div>
@@ -63,7 +77,7 @@
                 <a
                   id="header-cart"
                   class="flex items-center justify-center w-8 h-8 text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }}"
-                  href="cart.html"
+                  href="{{ route('cart') }}"
                 >
                   <svg
                     class="fill-current"
