@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class ProductRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check(); //cek apakah login ?
+        return true;
     }
 
     /**
@@ -25,10 +24,8 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'categories_id' => 'required|exists:categories,id',
-            'description' => 'required',
-            'price' => 'required|integer'
+            'name'  => 'string',
+            'photo' => 'image'
         ];
     }
 }

@@ -97,8 +97,8 @@
             </div>
             <div class="card-body">
                 <div class="center">
-                    <img class="img-fluid mt-3 mb-4 " style="width: 25rem;"
-                        src="{{ url('/frontend/images/content/undraw_game_day_ucx9.svg') }}" alt="...">
+                    <img class="img-fluid mt-3 mb-4 " style="width: 50rem;"
+                        src="{{ url('/frontend/images/content/Furniture store-pana.svg') }}" alt="...">
                 </div>
                 <p>Jatiasri menjual berbagai produk mebel yang anda butuhkan,
                     seperti kursi, meja ruangtamu, almari, kaligrafi, meja belajar, meja makan, mimbar, sangkar burung, dan produk mebel menarik lainnya.

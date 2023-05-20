@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FrontendController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\MyTransactionController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryfrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
+Route::get('/categories', [CategoryfrontendController::class, 'index'])->name('categories');
+Route::get('/categories/{id}', [CategoryfrontendController::class, 'detail'])->name('categories-detail');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
@@ -47,6 +51,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
             ]);
             Route::resource('user', UserController::class)->only([
                 'index', 'edit', 'update', 'destroy'
+            ]);
+            Route::resource('category', CategoryController::class)->only([
+                'index', 'create', 'store', 'edit', 'update', 'destroy'
             ]);
         });
     });

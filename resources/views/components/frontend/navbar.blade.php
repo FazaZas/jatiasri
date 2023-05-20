@@ -17,7 +17,12 @@
               id="menu"
             >
               <li class="mx-3 py-6 md:py-0">
-                <a href="#browse-the-room" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                <a href="{{ route('index') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
+                  >Beranda</a
+                >
+              </li>
+              <li class="mx-3 py-6 md:py-0">
+                <a href="{{ route('categories') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
                   >Kategori</a
                 >
               </li>

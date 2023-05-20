@@ -12,13 +12,18 @@ use Illuminate\Http\Request;
 use App\Models\TransactionItem;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CheckoutRequest;
+use App\Models\Category;
 
 class FrontendController extends Controller
 {
     public function index(Request $request){
+        $categories = Category::take(4)->get();
         $products = Product::with(['galleries'])->latest()->get();
 
-        return view('pages.frontend.index', compact('products'));
+        return view('pages.frontend.index',[
+            'categories' => $categories,
+            'products' => $products,
+        ]);
     }
 
     public function details(Request $request, $slug){
