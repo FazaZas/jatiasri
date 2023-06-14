@@ -26,7 +26,6 @@
             >
               <h3 class="text-2xl">keranjang Belanja</h3>
             </div>
-
             <div class="border-b border-gray-200 mb-4 hidden md:block">
               <div class="flex flex-start items-center pb-2 -mx-4">
                 <div class="px-4 flex-none">
@@ -52,7 +51,10 @@
               </div>
             </div>
 
+
+
             <!-- START: ROW 1 -->
+            @php $totalPrice = 0 @endphp
             @forelse ($carts as $item)
                <div
                   class="flex flex-start flex-wrap items-center mb-4 -mx-4"
@@ -98,17 +100,26 @@
                       </form>
                     </div>
                   </div>
+                  @php $totalPrice += $item->product->price @endphp
                 </div>
             @empty
               <p id="cart-empty" class="text-center py-8">
                 Ooops... Keranjang anda kosong
                 <a href="{{ route('index') }}" class="underline">Belanja sekarang</a>
               </p>
-            @endforelse
 
-            <!-- END: ROW 1 -->
+            @endforelse
+            <div
+              class="mb-4 mt-8 pb-3 border-b border-gray-200 md:border-b-0"
+            >
+              <h3 class="text-2xl">Ongkos Kirim Rp {{ number_format(0) }}</h3>
+              <h3 class="text-2xl">Total Rp {{ number_format($totalPrice ?? 0) }}</h3>
+            </div>
 
           </div>
+
+<!-- END: ROW 1 -->
+
           <div class="w-full md:px-4 md:w-4/12" id="shipping-detail">
             <div class="bg-gray-100 px-4 py-6 md:p-8 md:rounded-3xl">
               <form action="{{ route('checkout') }}" method="POST">
